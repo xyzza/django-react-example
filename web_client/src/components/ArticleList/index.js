@@ -9,9 +9,13 @@ class ArticleList extends Component {
 
     var articlesTemplate = articles.map(function(article, index){
       return (
-        <ArticleListView data={article} key={index}/>
+        <ArticleListView data={article} key={article.id}/>
       )
     });
+
+    if (!articles.length) {
+      articlesTemplate = <p>There are no articles yet...</p>;
+    }
 
     return (
       <div className='ArticleList'>
