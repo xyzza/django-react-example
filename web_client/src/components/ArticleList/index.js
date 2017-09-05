@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Article from './Article';
+import ArticleListView from './ArticleListView';
 
 class ArticleList extends Component {
 
@@ -9,7 +9,7 @@ class ArticleList extends Component {
 
     var articlesTemplate = articles.map(function(article, index){
       return (
-        <Article data={article} key={index}/>
+        <ArticleListView data={article} key={index}/>
       )
     });
 

@@ -4,7 +4,7 @@ import './App.css';
 import ArticleList from './components/ArticleList';
 
 
-var articles_list = [
+var articlesList = [
   {
     author: 'Konb',
     title: 'Some experience',
@@ -30,7 +30,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <p className="App-intro">
-          <ArticleList articles={articles_list}/>
+          <ArticleList articles={articlesList}/>
         </p>
       </div>
     );

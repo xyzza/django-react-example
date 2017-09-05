@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Article extends Component {
+class ArticleListView extends Component {
   render() {
 
     var data = this.props.data;
@@ -14,4 +14,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ArticleListView;
