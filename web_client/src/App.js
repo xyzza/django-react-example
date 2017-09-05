@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ArticleList from './components/ArticleList';
+
+
+var articles_list = [
+  {
+    author: 'Konb',
+    title: 'Some experience',
+    text: 'I have no experience',
+  },
+  {
+    author: 'Kek',
+    title: 'kek is better than lol',
+    text: 'some lol some kek kek kek',
+  },
+  {
+    author: 'Unknown',
+    title: 'Scary title',
+    text: 'Scary text',
+  }
+];
 
 class App extends Component {
   render() {
@@ -8,10 +28,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React, mafaka</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <ArticleList articles={articles_list}/>
         </p>
       </div>
     );
