@@ -12,7 +12,12 @@ class App extends Component {
 
   async loadArticles() {
     this.setState({
-      articles: await fetch("http://127.0.0.1:8000/api/v0/articles/").then(response =>response.json())
+      articles: await fetch("http://127.0.0.1:8000/api/v0/articles/"
+        ).then(response =>response.json()
+        ).catch(e => {
+          alert(e); //some error handling
+        return [];
+  })
     })
   }
 
