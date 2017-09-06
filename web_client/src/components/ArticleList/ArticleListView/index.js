@@ -6,9 +6,9 @@ class ArticleListView extends Component {
     var data = this.props.data;
 
     return (
-      <div className='article'>
-        <p className='article__author'>{data.author}</p>
-        <p className='article__title'>{data.title}</p>
+      <div className='Article'>
+        <p className='Article__title'>{data.title}</p>
+        <p className='Article__author'>{data.announce}</p>
       </div>
     )
   }
