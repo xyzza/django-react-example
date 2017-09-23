@@ -1,0 +1,9 @@
+.Article {
+  background-color: #663300;
+}
+
+.Article__title {
+  font-size: 1.5rem;
+  color: #ffcc66;
+  padding: 0.25rem;
+}

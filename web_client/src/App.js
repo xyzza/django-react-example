@@ -1,7 +1,46 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ArticleList from './components/ArticleList';
+// import ArticleList from './components/ArticleList';
+
+class Article extends Component {
+  render() {
+
+    var title = this.props.data.title,
+        announce = this.props.data.announce;
+
+    return (
+      <div className='Article'>
+        <p className='Article__title'>{title}</p>
+        <p className='Article__announce'>{announce}</p>
+      </div>
+    )
+  }
+}
+
+class News extends Component {
+
+  render() {
+
+    var articles = this.props.articles;
+
+    var articlesTemplate = articles.map(function(article, index){
+      return (
+        <Article data={article} key={article.id}/>
+      )
+    });
+
+    if (!articles.length) {
+      articlesTemplate = <p>There are no articles yet...</p>;
+    }
+
+    return (
+      <div className='News'>
+        {articlesTemplate}
+      </div>
+    )
+  }
+}
 
 
 class App extends Component {
@@ -31,9 +70,11 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        <strong>Number of articles: {this.state.articles.length}</strong>
+        <strong className={this.state.articles.length >0 ? '':'none'}>
+          Number of articles: {this.state.articles.length}
+        </strong>
         <p className="App-intro">
-          <ArticleList articles={this.state.articles}/>
+          <News articles={this.state.articles}/>
         </p>
       </div>
     );

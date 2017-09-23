@@ -8,7 +8,7 @@ class ArticleListView extends Component {
     return (
       <div className='Article'>
         <p className='Article__title'>{data.title}</p>
-        <p className='Article__author'>{data.announce}</p>
+        <p className='Article__announce'>{data.announce}</p>
       </div>
     )
   }
