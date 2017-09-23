@@ -10,9 +10,9 @@ class Article extends Component {
         announce = this.props.data.announce;
 
     return (
-      <div className='Article'>
-        <p className='Article__title'>{title}</p>
-        <p className='Article__announce'>{announce}</p>
+      <div className='article'>
+        <p className='article__title'>{title}</p>
+        <p className='article__announce'>{announce}</p>
       </div>
     )
   }
@@ -23,19 +23,25 @@ class News extends Component {
   render() {
 
     var articles = this.props.articles;
+    var articlesTemplate;
 
-    var articlesTemplate = articles.map(function(article, index){
-      return (
-        <Article data={article} key={article.id}/>
-      )
-    });
+    if (articles.length > 0) {
 
-    if (!articles.length) {
+      articlesTemplate = articles.map(function(article, index){
+        return (
+          <Article data={article} key={article.id}/>
+        )
+      });
+
+    } else {
       articlesTemplate = <p>There are no articles yet...</p>;
     }
 
     return (
-      <div className='News'>
+      <div className='news'>
+        <strong className={'news__count' + (articles.length >0 ? '':'none')}>
+          Number of articles: {articles.length}
+        </strong>
         {articlesTemplate}
       </div>
     )
@@ -66,16 +72,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className="app">
+        <div className="app-header">
+          <img src={logo} className="app-logo" alt="logo" />
         </div>
-        <strong className={this.state.articles.length >0 ? '':'none'}>
-          Number of articles: {this.state.articles.length}
-        </strong>
-        <p className="App-intro">
-          <News articles={this.state.articles}/>
-        </p>
+        <News articles={this.state.articles}/>
       </div>
     );
   }
