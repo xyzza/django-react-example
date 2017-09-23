@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 // import ArticleList from './components/ArticleList';
@@ -17,6 +18,13 @@ class Article extends Component {
     )
   }
 }
+
+Article.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    announce: PropTypes.string.isRequired
+  })
+};
 
 class News extends Component {
 
@@ -48,6 +56,9 @@ class News extends Component {
   }
 }
 
+News.propTypes = {
+  articles: PropTypes.array.isRequired,
+};
 
 class App extends Component {
 
